@@ -21,6 +21,7 @@ module.exports = {
         skin: {
           primary: "#3e1c33",
           secondary: "#54354b",
+          green: "#16654d"
         }
       },
       fontSize: {

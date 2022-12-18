@@ -5,6 +5,10 @@
 /* Write your own custom base styles here */
 @layer base {
     body {
-        @apply bg-skin-primary font-body text-skin-base relative;
+        @apply bg-skin-primary font-body text-skin-base relative ;
+    }
+
+    input {
+        @apply text-skin-primary placeholder:text-slate-400 placeholder:text-sm transition-all rounded w-full outline-none p-2;
     }
 }
