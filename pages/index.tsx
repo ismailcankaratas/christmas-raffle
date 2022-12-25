@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 import Layout from "../src/components/layout"
 import Hero from "../src/components/layout/hero/hero";
 import { API_ENDPOINTS } from "../src/components/utils/api-endpoints";
-import { errorNotify, successNotify } from "./_app";
+import Work from "../src/components/work";
 
 export default function Home() {
   const router = useRouter();
@@ -16,14 +17,15 @@ export default function Home() {
     async function verifyMail(key: any) {
       const { data } = await axios.post(API_ENDPOINTS.MAIL_VERIFY, { key });
       if (!data.status) {
-        return errorNotify(data.message);
+        return toast.error(data.message);
       }
-      successNotify(`Tekbrikler ${data.user.nameSurname}, çekilişe katıldınız.`)
+      toast.success(`Tekbrikler ${data.user.nameSurname}, çekilişe katıldınız.`)
     }
   }, [router.query]);
   return (
     <>
       <Hero />
+      <Work />
     </>
   )
 }
