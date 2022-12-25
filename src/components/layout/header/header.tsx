@@ -24,7 +24,7 @@ export default function Header() {
             <div>
                 <ul className="hidden md:flex gap-4">
                     <li>
-                        <a href="">Nasıl Çalışır?</a>
+                        <a href="#nasil-calisir">Nasıl Çalışır?</a>
                     </li>
                     <li>
                         <a href="">Kurallar</a>
