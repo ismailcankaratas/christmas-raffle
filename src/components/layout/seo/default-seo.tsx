@@ -5,8 +5,6 @@ export default function DefaultSeo() {
     return (
         <NextDefaultSeo
             title={title}
-            titleTemplate={`${title} | %s`}
-            defaultTitle={title}
             canonical=""
             openGraph={{
                 type: 'website',

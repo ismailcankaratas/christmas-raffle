@@ -30,7 +30,7 @@ module.exports = {
         '15px': '15px',
       },
       fontFamily: {
-        body: ["'Fredoka One', cursive"],
+        body: ["'Fredoka One', sans-serif"],
         manrope: ["'Manrope', sans-serif"],
       },
     },
