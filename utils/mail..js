@@ -1401,7 +1401,7 @@ body {
                                             <tr>
                                                 <td align="center" class="esd-block-text es-p10t">
                                                     <p style="font-size: 27px;">Yeni yıl arkadaşın</p>
-                                                    <p style="font-size: 24px;"><strong>&nbsp; &nbsp; ${user.nameSurname}🎄</strong></p>
+                                                    <p style="font-size: 24px;"><strong>&nbsp; &nbsp; ${user?.nameSurname}🎄</strong></p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1429,7 +1429,7 @@ body {
 		<center style='color:#ffffff; font-family:Montserrat, "Google Sans", "Segoe UI", Roboto, Arial, Ubuntu, sans-serif; font-size:18px; font-weight:400; line-height:18px;  mso-text-raise:1px'>Eşleşilen kişiye mail gönder</center>
 	</v:roundrect></a>
 <![endif]-->
-                                                    <!--[if !mso]><!-- --><span class="msohide es-button-border"><a href="mailto:${user.schoolNumber}@stu.gedik.edu.tr" class="es-button" target="_blank">Yeni yıl arkadaşına mail gönder</a></span>
+                                                    <!--[if !mso]><!-- --><span class="msohide es-button-border"><a href="mailto:${user?.schoolNumber}@stu.gedik.edu.tr" class="es-button" target="_blank">Yeni yıl arkadaşına mail gönder</a></span>
                                                     <!--<![endif]-->
                                                 </td>
                                             </tr>
