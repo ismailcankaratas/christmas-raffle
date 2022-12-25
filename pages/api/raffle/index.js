@@ -31,7 +31,7 @@ export default async function handler(req, res) {
                     newMatch.push(participant?.schoolNumber);
                     newParticipants = newParticipants.filter(x => x.schoolNumber != participant.schoolNumber);
                 }
-                // await Matches.create({ matches: newMatch });
+                await Matches.create({ matches: newMatch });
                 matches.push(newMatch);
             }
 
@@ -45,16 +45,14 @@ export default async function handler(req, res) {
                 const user1MailOptions = {
                     to: user1Mail,
                     subject: "Yılbaşı Çekiliş Sonucun 🥳",
-                    html: `
-                    <h1>Tebrikler, ${user2?.nameSurname} ile eşleştiniz 🥳</h1>
-                    <a href="mailto:${user2Mail}">${user2?.nameSurname}'a mail gönder!</a>`
+                    mailType: "match",
+                    user: user2
                 }
                 const user2MailOptions = {
                     to: user2Mail,
                     subject: "Yılbaşı Çekiliş Sonucun 🥳",
-                    html: `
-                    <h1>Tebrikler, ${user1?.nameSurname} ile eşleştiniz 🥳</h1>
-                    <a href="mailto:${user1Mail}">${user1?.nameSurname}'a mail gönder!</a>`
+                    mailType: "match",
+                    user: user1
                 }
                 sendMail(user1MailOptions);
                 sendMail(user2MailOptions);

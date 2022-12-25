@@ -28,7 +28,8 @@ export default async function handler(req, res) {
             const mailOptions = {
                 to: userMail,
                 subject: `Gedik Yılbaşı Çekilişi'ne katılmak için son adım!`,
-                html: `<a href="${process.env.BASE_URL}/?key=${token}">Tıkla</a>`,
+                token: token,
+                mailType: "verify"
             }
             sendMail(mailOptions);
             return res.status(200).json({ status: true })
