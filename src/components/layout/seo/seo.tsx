@@ -9,7 +9,7 @@ export default function ({ title, description, path }: SeoProps) {
             title={title}
             description={description}
             openGraph={{
-                url: `${process.env.NEXT_PUBLIC_SITE_URL}/${path}`,
+                url: `${process.env.BASE_URL}/${path}`,
                 title,
                 description,
             }}
