@@ -16,6 +16,7 @@ export default function Home() {
     }
     async function verifyMail(key: any) {
       const { data } = await axios.post(API_ENDPOINTS.MAIL_VERIFY, { key });
+      router.push(router.pathname);
       if (!data.status) {
         return toast.error(data.message);
       }
