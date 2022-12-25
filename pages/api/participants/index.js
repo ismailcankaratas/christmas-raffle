@@ -13,7 +13,7 @@ export default async function handler(req, res) {
             const participants = await Participants.find();
             res.status(200).json(participants);
         } catch (error) {
-            res.status(500).json(error);
+            return res.status(500).json({ message: error.message, status: false });
         }
     }
 
@@ -27,7 +27,8 @@ export default async function handler(req, res) {
             const token = jwt.sign(req.body, process.env.SECRET);
             const mailOptions = {
                 to: userMail,
-                token,
+                subject: `Gedik Yılbaşı Çekilişi'ne katılmak için son adım!`,
+                html: `<a href="${process.env.BASE_URL}/?key=${token}">Tıkla</a>`,
             }
             sendMail(mailOptions);
             return res.status(200).json({ status: true })

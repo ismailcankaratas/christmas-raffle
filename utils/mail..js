@@ -8,12 +8,12 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-export function sendMail({ to, token, mailtype }) {
+export function sendMail({ subject, to, html, mailtype }) {
     let mailOptions = {
-        from: "iguinovasyon@gmail.com",
+        from: process.env.MAIL_USER,
         to: to,
-        subject: "Gedik Yılbaşı Çekilişi'ne katılmak için son adım!",
-        html: `<a href="${process.env.BASE_URL}/?key=${token}">Tıkla</a>`
+        subject,
+        html,
     }
     transporter.sendMail(mailOptions, (err, data) => {
         if (err) console.log(err);

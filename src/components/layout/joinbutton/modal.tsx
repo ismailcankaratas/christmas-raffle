@@ -79,7 +79,7 @@ export default function JoinModal({ isOpen, closeModal }: any) {
                         value={schoolNumber}
                         maxLength={9}
                         placeholder="123456789"
-                        onChange={(e) => setSchoolNumber(e.target.value)}
+                        onChange={(e) => setSchoolNumber(e.target.value.replace(/[^0-9.]/g, ''))}
                     />
                     <span className='absolute text-skin-primary right-1 top-9'>@stu.gedik.edu.tr</span>
                 </div>
