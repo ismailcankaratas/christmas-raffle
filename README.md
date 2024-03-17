@@ -1,9 +1,23 @@
-## Nasıl Çalışır
+# Christmas Raffle
 
-Sistem, yılbaşı çekilişine katılan gediklilerin geliştirdiğimiz bir algoritma ile eşleştirilmesi ve birbirlerine alacakları sürpriz hediyelerle tanışmasına dayanıyor.
+## Description
+Sistem, çekilise katılanları gelistirdigimiz bir algoritma ile eslestirilmesi ve birbirlerine alacakları sürpriz hediyelerle tanısmasına dayanıyor.
 
-Çekilişe katılmak isteyenler yukarıdaki Çekilişe Katıl'a tıklayıp bilgilerini dolduruyor ve okul maillerine gelen linke tıklayıp doğrulama yapıyor. Hepsi bu kadar.
+## Tecnologies
 
-Eşleşen katılımcıların okul mailleri her iki tarafla da paylaşılacak.
+- NextJs v13
+- TypeScript
+- TailwindCSS
+- MongoDB
 
-Görmek için ziyaret et https://www.gedikyeniyil.tk
+## Images
+
+<img width="712" alt="image" src="https://github.com/ismailcankaratas/christmas-raffle/assets/64715337/3e7fc0a6-48d7-4288-aa53-e701df48b289">
+<img width="711" alt="image" src="https://github.com/ismailcankaratas/christmas-raffle/assets/64715337/39a18300-a2c0-42c8-b99e-d5902fcd6809">
+<img width="720" alt="image" src="https://github.com/ismailcankaratas/christmas-raffle/assets/64715337/053c2524-5fca-407c-8b2f-aaccb0ac7ba1">
+
+## Instalation
+
+```sh
+git clone https://github.com/ismailcankaratas/christmas-raffle
+```
