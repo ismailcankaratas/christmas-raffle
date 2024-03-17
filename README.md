@@ -21,3 +21,8 @@ Sistem, çekilise katılanları gelistirdigimiz bir algoritma ile eslestirilmesi
 ```sh
 git clone https://github.com/ismailcankaratas/christmas-raffle
 ```
+## Environment File
+Update `.env.example`. change the file name to `.env.locale`
+
+## Start
+```npm run dev```
