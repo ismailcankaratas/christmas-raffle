@@ -4,8 +4,7 @@ import Modal from '../modal/modal';
 
 export default function JoinModal({ isOpen, closeModal }: any) {
     const [name, setName] = useState("");
-    const [schoolNumber, setSchoolNumber] = useState("");
-    const [schoolPart, setSchoolPart] = useState("");
+    const [email, setMail] = useState("");
     const [errors, setErrors] = useState([]);
     const [success, setSuccess] = useState("");
 
@@ -13,28 +12,27 @@ export default function JoinModal({ isOpen, closeModal }: any) {
         const newErrors: any = [];
         let newSuccess: string = "";
 
-        if (!schoolPart || !name || !schoolNumber || schoolNumber.length < 9) {
+        if (!name || !email || email.length < 9) {
             newErrors.push("Lütfen tüm alanları doldurun!")
             setErrors(newErrors);
         }
         if (newErrors.length > 0) { return; }
 
-        const { data } = await axios.post(`/api/participants`, { schoolPart, name, schoolNumber });
+        const { data } = await axios.post(`/api/participants`, { name, email });
         if (data.status == false) {
             newErrors.push(data.message)
         }
         setErrors(newErrors);
         if (newErrors.length > 0) { return; }
-        newSuccess = `${schoolNumber}@stu.gedik.edu.tr mail adresinize gelen linke tıklayarak çekilişe katılmak için son adımı tamamlayabilirsiniz`
+        newSuccess = `${email} email adresinize gelen linke tıklayarak çekilise katılmak için son adımı tamamlayabilirsiniz`
         setSuccess(newSuccess);
     }
-    const description = `Merhaba!
- Senin için dogru hediyeyi seçip verebilmesi için asagıdaki bilgileri hediye arkadasına iletecegiz.
- Lütfen tüm alanları doldur!`
     return (
         <Modal
-            title={"Yılbası Çekilisine Katıl!"}
-            description={description}
+            title="Yılbası Çekilisine Katıl!"
+            description={`Merhaba!
+            Senin için dogru hediyeyi seçip verebilmesi için asagıdaki bilgileri hediye arkadasına iletecegiz.
+            Lütfen tüm alanları doldur!`}
             isOpen={isOpen} closeModal={closeModal} errors={errors} success={success} submit={handler}>
             <form className='my-4'>
                 <div className='w-full'>
@@ -42,46 +40,28 @@ export default function JoinModal({ isOpen, closeModal }: any) {
                         Adınız Soyadınız
                     </label>
                     <input
-                        id={"adsoyad"}
-                        name={"adsoyad"}
-                        type={"text"}
+                        id="adsoyad"
+                        name="adsoyad"
+                        type="text"
                         autoComplete="off"
                         spellCheck="false"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
                 </div>
-
-                <div className='w-full mt-4'>
-                    <label htmlFor="schoolPart" className='block mb-3 text-slate-200 text-md leading-none cursor-pointer'>
-                        Okudugunuz Bölüm
+                <div className='w-fulll mt-4'>
+                    <label htmlFor="email" className='block mb-3 text-slate-200 text-md leading-none cursor-pointer'>
+                        Mail Adresiniz
                     </label>
                     <input
-                        id={"schoolPart"}
-                        name={"schoolPart"}
-                        type={"text"}
+                        id="email"
+                        name="email"
+                        type="text"
                         autoComplete="off"
                         spellCheck="false"
-                        value={schoolPart}
-                        onChange={(e) => setSchoolPart(e.target.value)}
+                        value={email}
+                        onChange={(e) => setMail(e.target.value)}
                     />
-                </div>
-                <div className='w-fulll mt-4 relative'>
-                    <label htmlFor="schoolnumber" className='block mb-3 text-slate-200 text-md leading-none cursor-pointer'>
-                        Okul Numaranız
-                    </label>
-                    <input
-                        id={"schoolnumber"}
-                        name={"schoolnumber"}
-                        type={"text"}
-                        autoComplete="off"
-                        spellCheck="false"
-                        value={schoolNumber}
-                        maxLength={9}
-                        placeholder="123456789"
-                        onChange={(e) => setSchoolNumber(e.target.value.replace(/[^0-9.]/g, ''))}
-                    />
-                    <span className='absolute text-skin-primary right-1 top-9'>@stu.gedik.edu.tr</span>
                 </div>
             </form>
         </Modal>

@@ -1,7 +1,8 @@
 import { DefaultSeo as NextDefaultSeo } from 'next-seo';
 
 export default function DefaultSeo() {
-    const title = "Gedik Yeni Yıl | İnovasyon Kulübü";
+    const year = new Date().getFullYear();
+    const title = `Yeni Yıl ${year} | Çekiliş`;
     return (
         <NextDefaultSeo
             title={title}

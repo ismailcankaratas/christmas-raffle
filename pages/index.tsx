@@ -15,12 +15,16 @@ export default function Home() {
       verifyMail(router.query.key)
     }
     async function verifyMail(key: any) {
-      const { data } = await axios.post(API_ENDPOINTS.MAIL_VERIFY, { key });
-      router.push(router.pathname);
-      if (!data.status) {
-        return toast.error(data.message);
+      try {
+        const { data } = await axios.post(API_ENDPOINTS.MAIL_VERIFY, { key });
+        router.push(router.pathname);
+        if (!data.status) {
+          return toast.error(data.message);
+        }
+        return toast.success(`Tekbrikler ${data.user.name}, çekilise katıldınız.`)
+      } catch (error: any) {
+        return toast.error(error.message);
       }
-      toast.success(`Tekbrikler ${data.user.nameSurname}, çekilişe katıldınız.`)
     }
   }, [router.query]);
   return (

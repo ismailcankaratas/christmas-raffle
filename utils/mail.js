@@ -1,29 +1,29 @@
 import nodemailer from "nodemailer";
 
 let transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS
-    }
+  service: "gmail",
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
+  },
 });
 
 export function sendMail({ subject, to, token, mailType, user }) {
-    const html = (mailType == "verify") ? verifyMail(token) : matchMail(user);
-    let mailOptions = {
-        from: process.env.MAIL_USER,
-        to: to,
-        subject,
-        html
-    }
-    transporter.sendMail(mailOptions, (err, data) => {
-        if (err) console.log(err);
-        console.log(data);
-    });
+  const html = mailType == "verify" ? verifyMail(token) : matchMail(user);
+  let mailOptions = {
+    from: process.env.MAIL_USER,
+    to: to,
+    subject,
+    html,
+  };
+  transporter.sendMail(mailOptions, (err, data) => {
+    if (err) console.log(err);
+    console.log(data);
+  });
 }
 
 function verifyMail(token) {
-    return `
+  return `
             <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -333,7 +333,7 @@ function verifyMail(token) {
                                                                                         <td align="center"
                                                                                             class="esd-block-text es-p10t es-p5b">
                                                                                             <h2 style="color: #00413f;">
-                                                                                                ÇEKİLİŞE KATILMAK İÇİN SON
+                                                                                                ÇEKİLİSE KATILMAK İÇİN SON
                                                                                                 ADIM</h2>
                                                                                         </td>
                                                                                     </tr>
@@ -468,11 +468,11 @@ function verifyMail(token) {
     </body>
 
     </html>
-        `
+        `;
 }
 
 function matchMail(user) {
-    return `
+  return `
     <html>
         <head>
         <style>
@@ -1374,8 +1374,8 @@ body {
                                             <tr>
                                                 <td align="center" class="esd-block-text es-m-txt-c es-p20t es-p30b es-p40r es-p40l es-m-p15r es-m-p10l">
                                                     <h3>
-                                                    Yeni yıl arkadaşınla tanışıp hediyesini vermeye hazır mısın?
-                                                    mesaj gönder 'a basarak yeni yıl arkadaşına mail gönderebilirsin
+                                                    Yeni yıl arkadasınla tanısıp hediyesini vermeye hazır mısın?
+                                                    mesaj gönder 'a basarak yeni yıl arkadasına mail gönderebilirsin
                                                     </h3>
                                                 </td>
                                             </tr>
@@ -1400,7 +1400,7 @@ body {
                                             </tr>
                                             <tr>
                                                 <td align="center" class="esd-block-text es-p10t">
-                                                    <p style="font-size: 27px;">Yeni yıl arkadaşın</p>
+                                                    <p style="font-size: 27px;">Yeni yıl arkadasın</p>
                                                     <p style="font-size: 24px;"><strong>&nbsp; &nbsp; ${user?.nameSurname}🎄</strong></p>
                                                 </td>
                                             </tr>
@@ -1426,10 +1426,10 @@ body {
 	<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" esdevVmlButton href="" 
                 style="height:51px; v-text-anchor:middle; width:312px" arcsize="50%" stroke="f"  fillcolor="#ed3a4b">
 		<w:anchorlock></w:anchorlock>
-		<center style='color:#ffffff; font-family:Montserrat, "Google Sans", "Segoe UI", Roboto, Arial, Ubuntu, sans-serif; font-size:18px; font-weight:400; line-height:18px;  mso-text-raise:1px'>Eşleşilen kişiye mail gönder</center>
+		<center style='color:#ffffff; font-family:Montserrat, "Google Sans", "Segoe UI", Roboto, Arial, Ubuntu, sans-serif; font-size:18px; font-weight:400; line-height:18px;  mso-text-raise:1px'>Eslesilen kisiye mail gönder</center>
 	</v:roundrect></a>
 <![endif]-->
-                                                    <!--[if !mso]><!-- --><span class="msohide es-button-border"><a href="mailto:${user?.schoolNumber}@stu.gedik.edu.tr" class="es-button" target="_blank">Yeni yıl arkadaşına mail gönder</a></span>
+                                                    <!--[if !mso]><!-- --><span class="msohide es-button-border"><a href="mailto:${user?.mail}" class="es-button" target="_blank">Yeni yıl arkadasına mail gönder</a></span>
                                                     <!--<![endif]-->
                                                 </td>
                                             </tr>
@@ -1463,5 +1463,5 @@ body {
         </tbody>
     </table>
 </td>
-    `
+    `;
 }

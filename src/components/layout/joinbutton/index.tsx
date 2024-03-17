@@ -17,7 +17,7 @@ export default function JoinButton() {
             <button
                 onClick={openModal}
                 className="bg-skin-secondary py-4 px-8 rounded-lg">
-                Çekilişe Katıl
+                Çekilise Katıl
             </button>
             <JoinModal isOpen={isOpen} closeModal={closeModal} />
         </>
