@@ -10,6 +10,12 @@ Sistem, çekilise katılanları gelistirdigimiz bir algoritma ile eslestirilmesi
 - TailwindCSS
 - MongoDB
 
+## Features
+- Email ile çekilişe katılma
+- Email doğrulama
+- Katılımcıları eşleştirme
+- Çekiliş sonuç maili gönderme
+
 ## Images
 
 <img width="712" alt="image" src="https://github.com/ismailcankaratas/christmas-raffle/assets/64715337/3e7fc0a6-48d7-4288-aa53-e701df48b289">
